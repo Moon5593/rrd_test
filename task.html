@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wheel slider</title>
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Varta:wght@300;400;500&amp;display=swap">
+    <link type="text/css" rel="stylesheet" href="assets/task.css">
+</head>
+<body style="background-image: url('assets/bg-cover.png');">
+    <span class="side"></span>
+    <div id="content-holder">
+        <span style="margin-top: 10px;">WHEELS</span>
+        <p class="p1">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+        </p>
+
+        <div id="items">
+            <a id="sm" onclick="plusDivs(-1)">
+                &#8249;
+            </a>
+            <div class="inner-divs">
+                <div>
+                    <img src="assets/0.png">
+                </div>
+                <span><b>17-INCH CAST ALUMINIUM WHEELY, FULLY PAINTED SILVER LITHO</b></span>
+                <p>Standard on Touring FWD</p>
+                <b>(WGU)</b>
+            </div>
+
+            <div class="inner-divs">
+                <div>
+                    <img src="assets/1.png">
+                </div>
+                <span><b>17-INCH CAST ALUMINIUM DIAMOND-CUT WHEEL WITH BALTIC GRAY POCKETS</b></span>
+                <p>Standard on Touring LFWD / Hybrid and Touring Hybrid</p>
+                <b>(WJR)</b>
+            </div>
+
+            <div class="inner-divs">
+                <div>
+                    <img src="assets/2.png">
+                </div>
+                <span><b>18-INCH CAST ALUMINIUM WHEEL WITH FORESHADOW FINISH</b></span>
+                <p>Included with S Appearance Package on Touring Hybrid, Touring L Hybrid and Limited Hybrid</p>
+                <b>(WP6)</b>
+            </div>
+
+            <div class="inner-divs">
+                <div>
+                    <img src="assets/3.png">
+                </div>
+                <span><b>17-INCH CAST ALUMINIUM DIAMOND-CUT WHEEL WITH BALTIC GRAY POCKETS</b></span>
+                <p>Standard on Touring FWD / Touring Hybrid</p>
+                <b>(WPF)</b>
+            </div>
+            <a id="gr" onclick="plusDivs(1)">
+                &#8250;
+            </a>
+        </div>
+    </div>
+    <script>
+        var i;
+        var slideIndex = 1;
+        var x = document.getElementsByClassName("inner-divs");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";  
+        }
+        x[0].style.display = "block"; 
+        x[1].style.display = "block";  
+        x[2].style.display = "block";
+        if(slideIndex===1){
+            var b4 = document.getElementById('sm');
+            b4.style.pointerEvents = 'none';
+            b4.style.color = 'grey';
+        }
+        x[slideIndex-1].style.backgroundColor = 'white';
+        x[slideIndex-1].style.border = '1px solid #ccc';
+        x[slideIndex-1].style.backgroundImage = 'url("assets/wheel-bg.jpg")';
+        x[slideIndex-1].style.transform = 'scale(1.3)';
+        x[slideIndex-1].childNodes[1].style.minWidth = '20vw';
+        x[slideIndex-1].childNodes[1].style.marginTop = '2vh';
+        x[slideIndex-1].childNodes[1].style.minHeight = '25vh';
+        x[slideIndex-1].style.paddingBottom = '2vh';
+        x[slideIndex-1].style.maxWidth = '25vw';
+        x[slideIndex-1].childNodes[1].innerHTML = `<img src="assets/${slideIndex-1}.png" style="max-width: 25vw; max-height: 25vh;">`;
+
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
+
+        function showDivs(n) {
+            var x2 = document.getElementsByClassName("inner-divs");
+            for (let j = 0; j < x2.length; j++) {
+                x2[j].style.backgroundColor = 'unset';
+                x[j].style.border = 'none';
+                x[j].style.backgroundImage = 'unset';
+                x[j].style.transform = 'scale(1)';
+                x[j].childNodes[1].style.minWidth = '25vw';
+                x[j].childNodes[1].style.marginTop = '0px';
+                x[j].childNodes[1].style.minHeight = '23vh';
+                x[j].style.paddingBottom = '0px';
+                x[j].style.maxWidth = '25vw';
+                x[j].childNodes[1].innerHTML = `<img src="assets/${j}.png" style="max-width: 20vw; max-height: 20vh;">`;
+            }
+                x[slideIndex-1].style.backgroundColor = 'white';
+                x[slideIndex-1].style.border = '1px solid #ccc';
+                x[slideIndex-1].style.backgroundImage = 'url("assets/wheel-bg.jpg")';
+                x[slideIndex-1].style.transform = 'scale(1.3)';
+                x[slideIndex-1].childNodes[1].style.minWidth = '20vw';
+                x[slideIndex-1].childNodes[1].style.marginTop = '2vh';
+                x[slideIndex-1].childNodes[1].style.minHeight = '25vh';
+                x[slideIndex-1].style.paddingBottom = '2vh';
+                x[slideIndex-1].style.maxWidth = '25vw';
+                x[slideIndex-1].childNodes[1].innerHTML = `<img src="assets/${slideIndex-1}.png" style="max-width: 25vw; max-height: 25vh;">`;
+
+            if(n>3){
+                x2[n-2].style.display = "none"; 
+                x2[n-3].style.display = "none";  
+                x2[n-4].style.display = "none";
+                x2[n-1].style.display = "block";
+                var b = document.getElementById('sm');
+                b.style.pointerEvents = 'all';
+                b.style.color = 'black';
+            }else if(n<=3){
+                if(x2[n-1] && x2[n-2] && x2[n-3]){
+                    x2[n-1].style.display = "block"; 
+                    x2[n-2].style.display = "block";  
+                    x2[n-3].style.display = "block";
+                    x2[x.length-1].style.display = "none";
+                    for (i = 3; i < x2.length; i++) {
+                        x2[i].style.display = "none";  
+                    }
+                }
+                if(slideIndex===1){
+                    var b3 = document.getElementById('sm');
+                    b3.style.pointerEvents = 'none';
+                    b3.style.color = 'grey';
+                }
+                if(slideIndex>1){
+                    var b1 = document.getElementById('sm');
+                    b1.style.pointerEvents = 'all';
+                    b1.style.color = 'black';
+                }
+            }
+            if(n===x2.length){
+                var b5 = document.getElementById('gr');
+                b5.style.pointerEvents = 'none';
+                b5.style.color = 'grey';
+            }else{
+                var b2 = document.getElementById('gr');
+                b2.style.pointerEvents = 'all';
+                b2.style.color = 'black';
+            }
+        }
+        
+    </script>
+</body>
+</html>
